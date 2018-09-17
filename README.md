@@ -1,1 +1,1 @@
-RaspberryPi - wiringPi C++ wrapper
+RaspberryPi C++ wrapper on wiringPi
