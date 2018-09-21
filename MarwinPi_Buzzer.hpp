@@ -2,6 +2,7 @@
 #define MARWINPI_BUZZER_HPP
 
 #include "MarwinPi_IBuzzer.hpp"
+#include "MarwinPi_Types.hpp"
 
 namespace MarwinPi
 {
@@ -9,7 +10,7 @@ namespace MarwinPi
 class Buzzer : public IBuzzer
 {
 public:
-    Buzzer(unsigned p_gpio = 0);
+    Buzzer(GPIO_WPI p_gpio);
     ~Buzzer();
 
     void play() override;
@@ -17,7 +18,7 @@ public:
     void stop() override;
 
 private:
-    unsigned m_gpio = 0;
+    GPIO_WPI m_gpio = GPIO_WPI::GPIO_WPI_0;
     bool m_isPlaying = false;
 };
 

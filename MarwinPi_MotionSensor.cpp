@@ -4,14 +4,14 @@
 namespace MarwinPi
 {
 
-MotionSensor::MotionSensor(unsigned p_gpio) : m_gpio(p_gpio)
+MotionSensor::MotionSensor(GPIO_WPI p_gpio) : m_gpio(p_gpio)
 {
-    pinMode(m_gpio, INPUT);
+    pinMode(static_cast<unsigned>(m_gpio), INPUT);
 }
 
 bool MotionSensor::motionDetected()
 {
-    return (digitalRead(m_gpio) == HIGH);
+    return (digitalRead(static_cast<unsigned>(m_gpio)) == HIGH);
 }
 
 }

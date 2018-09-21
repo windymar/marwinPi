@@ -2,6 +2,7 @@
 #define MARWINPI_DIODE_HPP
 
 #include "MarwinPi_IDiode.hpp"
+#include "MarwinPi_Types.hpp"
 
 namespace MarwinPi
 {
@@ -9,7 +10,7 @@ namespace MarwinPi
 class Diode : public IDiode
 {
 public:
-    Diode(unsigned p_gpio = 0);
+    Diode(GPIO_WPI p_gpio);
     ~Diode();
 
     void switchOn() override;
@@ -17,7 +18,7 @@ public:
     bool isSwitchedOn() override;
 
 private:
-    unsigned m_gpio = 0;
+    GPIO_WPI m_gpio = GPIO_WPI::GPIO_WPI_0;
     bool m_isSwichedOn = false;
 };
 

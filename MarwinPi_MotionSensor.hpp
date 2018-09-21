@@ -2,6 +2,7 @@
 #define MARWINPI_MOTIONSENSOR_HPP
 
 #include "MarwinPi_IMotionSensor.hpp"
+#include "MarwinPi_Types.hpp"
 
 namespace MarwinPi
 {
@@ -9,12 +10,12 @@ namespace MarwinPi
 class MotionSensor : public IMotionSensor
 {
 public:
-    MotionSensor(unsigned p_gpio = 0);
+    MotionSensor(GPIO_WPI p_gpio);
 
     bool motionDetected() override;
 
 private:
-    unsigned m_gpio = 0;
+    GPIO_WPI m_gpio = GPIO_WPI::GPIO_WPI_0;
 };
 
 }

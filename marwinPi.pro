@@ -34,7 +34,8 @@ HEADERS += \
     MarwinPi_IMotionSensor.hpp \
     MarwinPi_MotionSensor.hpp \
     MarwinPi_IBuzzer.hpp \
-    MarwinPi_Buzzer.hpp
+    MarwinPi_Buzzer.hpp \
+    MarwinPi_Types.hpp
 unix {
     target.path = /usr/lib
     INSTALLS += target

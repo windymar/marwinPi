@@ -4,26 +4,26 @@
 namespace MarwinPi
 {
 
-Diode::Diode(unsigned p_gpio) : m_gpio(p_gpio)
+Diode::Diode(GPIO_WPI p_gpio) : m_gpio(p_gpio)
 {
-    pinMode(m_gpio, OUTPUT);
+    pinMode(static_cast<unsigned>(m_gpio), OUTPUT);
 }
 
 Diode::~Diode()
 {
     switchOff();
-    pinMode(m_gpio, INPUT);
+    pinMode(static_cast<unsigned>(m_gpio), INPUT);
 }
 
 void Diode::switchOn()
 {
-    digitalWrite(m_gpio, HIGH);
+    digitalWrite(static_cast<unsigned>(m_gpio), HIGH);
     m_isSwichedOn = true;
 }
 
 void Diode::switchOff()
 {
-    digitalWrite(m_gpio, LOW);
+    digitalWrite(static_cast<unsigned>(m_gpio), LOW);
     m_isSwichedOn = false;
 }
 
