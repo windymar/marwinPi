@@ -12,7 +12,7 @@ public:
     Buzzer(unsigned p_gpio = 0);
     ~Buzzer();
 
-    void play(unsigned p_power) override;
+    void play() override;
     bool isPlaying() const override;
     void stop() override;
 

@@ -8,7 +8,7 @@ class IBuzzer
 {
 public:
     virtual ~IBuzzer() { }
-    virtual void play(unsigned p_power) = 0;
+    virtual void play() = 0;
     virtual bool isPlaying() const = 0;
     virtual void stop() = 0;
 };

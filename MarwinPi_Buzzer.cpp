@@ -14,7 +14,7 @@ Buzzer::~Buzzer()
     stop();
 }
 
-void Buzzer::play(unsigned p_power)
+void Buzzer::play()
 {
     pinMode(m_gpio, OUTPUT);
     digitalWrite(m_gpio, LOW);
