@@ -4,46 +4,58 @@
 namespace MarwinPi
 {
 
-enum class GPIO_BCM
+enum class GpioBcm
 {
-    GPIO_BCM_4 = 4,
-    GPIO_BCM_17 = 17,
-    GPIO_BCM_27 = 27,
-    GPIO_BCM_22 = 22,
-    GPIO_BCM_5 = 5,
-    GPIO_BCM_6 = 6,
-    GPIO_BCM_13 = 13,
-    GPIO_BCM_19 = 19,
-    GPIO_BCM_26 = 26,
-    GPIO_BCM_18 = 18,
-    GPIO_BCM_23 = 23,
-    GPIO_BCM_24 = 24,
-    GPIO_BCM_25 = 25,
-    GPIO_BCM_12 = 12,
-    GPIO_BCM_16 = 16,
-    GPIO_BCM_20 = 20,
-    GPIO_BCM_21 = 21
+    GpioBcm_4 = 4,
+    GpioBcm_17 = 17,
+    GpioBcm_27 = 27,
+    GpioBcm_22 = 22,
+    GpioBcm_5 = 5,
+    GpioBcm_6 = 6,
+    GpioBcm_13 = 13,
+    GpioBcm_19 = 19,
+    GpioBcm_26 = 26,
+    GpioBcm_18 = 18,
+    GpioBcm_23 = 23,
+    GpioBcm_24 = 24,
+    GpioBcm_25 = 25,
+    GpioBcm_12 = 12,
+    GpioBcm_16 = 16,
+    GpioBcm_20 = 20,
+    GpioBcm_21 = 21
 };
 
-enum class GPIO_WPI
+enum class GpioWpi
 {
-    GPIO_WPI_7 = 7,
-    GPIO_WPI_0 = 0,
-    GPIO_WPI_2 = 2,
-    GPIO_WPI_3 = 3,
-    GPIO_WPI_21 = 21,
-    GPIO_WPI_22 = 22,
-    GPIO_WPI_23 = 23,
-    GPIO_WPI_24 = 24,
-    GPIO_WPI_25 = 25,
-    GPIO_WPI_1 = 1,
-    GPIO_WPI_4 = 4,
-    GPIO_WPI_5 = 5,
-    GPIO_WPI_6 = 6,
-    GPIO_WPI_26 = 26,
-    GPIO_WPI_27 = 27,
-    GPIO_WPI_28 = 28,
-    GPIO_WPI_29 = 29
+    GpioWpi_7 = 7,
+    GpioWpi_0 = 0,
+    GpioWpi_2 = 2,
+    GpioWpi_3 = 3,
+    GpioWpi_21 = 21,
+    GpioWpi_22 = 22,
+    GpioWpi_23 = 23,
+    GpioWpi_24 = 24,
+    GpioWpi_25 = 25,
+    GpioWpi_1 = 1,
+    GpioWpi_4 = 4,
+    GpioWpi_5 = 5,
+    GpioWpi_6 = 6,
+    GpioWpi_26 = 26,
+    GpioWpi_27 = 27,
+    GpioWpi_28 = 28,
+    GpioWpi_29 = 29
+};
+
+enum class GpioMode
+{
+    GpioMode_Input = 0,
+    GpioMode_Output = 1
+};
+
+enum class GpioValue
+{
+    GpioValue_Low = 0,
+    GpioValue_High = 1
 };
 
 }

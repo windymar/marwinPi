@@ -3,6 +3,8 @@
 
 #include "MarwinPi_IBuzzer.hpp"
 #include "Platform/MarwinPi_Types.hpp"
+#include "Platform/MarwinPi_GpioPort.hpp"
+#include <memory>
 
 namespace MarwinPi
 {
@@ -10,15 +12,15 @@ namespace MarwinPi
 class Buzzer : public IBuzzer
 {
 public:
-    Buzzer(GPIO_WPI p_gpio);
+    Buzzer(std::unique_ptr<IGpioPort>& p_gpioPort);
     ~Buzzer();
 
     void play() override;
     bool isPlaying() const override;
-    void stop() override;
+    void stopPlaying() override;
 
 private:
-    GPIO_WPI m_gpio = GPIO_WPI::GPIO_WPI_0;
+    std::unique_ptr<IGpioPort>& m_gpioPort;
     bool m_isPlaying = false;
 };
 

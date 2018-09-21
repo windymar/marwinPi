@@ -3,6 +3,8 @@
 
 #include "MarwinPi_IDiode.hpp"
 #include "Platform/MarwinPi_Types.hpp"
+#include "Platform/MarwinPi_GpioPort.hpp"
+#include <memory>
 
 namespace MarwinPi
 {
@@ -10,7 +12,7 @@ namespace MarwinPi
 class Diode : public IDiode
 {
 public:
-    Diode(GPIO_WPI p_gpio);
+    Diode(std::unique_ptr<IGpioPort>& p_gpioPort);
     ~Diode();
 
     void switchOn() override;
@@ -18,7 +20,7 @@ public:
     bool isSwitchedOn() override;
 
 private:
-    GPIO_WPI m_gpio = GPIO_WPI::GPIO_WPI_0;
+    std::unique_ptr<IGpioPort>& m_gpioPort;
     bool m_isSwichedOn = false;
 };
 

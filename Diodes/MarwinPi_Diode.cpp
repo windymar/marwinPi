@@ -4,26 +4,26 @@
 namespace MarwinPi
 {
 
-Diode::Diode(GPIO_WPI p_gpio) : m_gpio(p_gpio)
+Diode::Diode(std::unique_ptr<IGpioPort>& p_gpioPort) :
+    m_gpioPort(p_gpioPort)
 {
-    pinMode(static_cast<unsigned>(m_gpio), OUTPUT);
 }
 
 Diode::~Diode()
 {
     switchOff();
-    pinMode(static_cast<unsigned>(m_gpio), INPUT);
+    m_gpioPort->clear();
 }
 
 void Diode::switchOn()
 {
-    digitalWrite(static_cast<unsigned>(m_gpio), HIGH);
+    m_gpioPort->write(GpioValue::GpioValue_High);
     m_isSwichedOn = true;
 }
 
 void Diode::switchOff()
 {
-    digitalWrite(static_cast<unsigned>(m_gpio), LOW);
+    m_gpioPort->write(GpioValue::GpioValue_Low);
     m_isSwichedOn = false;
 }
 

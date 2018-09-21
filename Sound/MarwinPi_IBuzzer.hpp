@@ -10,7 +10,7 @@ public:
     virtual ~IBuzzer() { }
     virtual void play() = 0;
     virtual bool isPlaying() const = 0;
-    virtual void stop() = 0;
+    virtual void stopPlaying() = 0;
 };
 
 }

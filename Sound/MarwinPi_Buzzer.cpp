@@ -4,20 +4,20 @@
 namespace MarwinPi
 {
 
-Buzzer::Buzzer(GPIO_WPI p_gpio) : m_gpio(p_gpio)
+Buzzer::Buzzer(std::unique_ptr<IGpioPort>& p_gpioPort) :
+    m_gpioPort(p_gpioPort)
 {
+    stopPlaying();
 }
 
 Buzzer::~Buzzer()
 {
-    digitalWrite(static_cast<unsigned>(m_gpio), LOW);
-    stop();
+    stopPlaying();
 }
 
 void Buzzer::play()
-{
-    pinMode(static_cast<unsigned>(m_gpio), OUTPUT);
-    digitalWrite(static_cast<unsigned>(m_gpio), LOW);
+{   
+    m_gpioPort->write(GpioValue::GpioValue_Low);
     m_isPlaying = true;
 }
 
@@ -26,10 +26,9 @@ bool Buzzer::isPlaying() const
     return m_isPlaying;
 }
 
-void Buzzer::stop()
+void Buzzer::stopPlaying()
 {
-    digitalWrite(static_cast<unsigned>(m_gpio), HIGH);
-    pinMode(static_cast<unsigned>(m_gpio), INPUT);
+    m_gpioPort->write(GpioValue::GpioValue_High);
     m_isPlaying = false;
 }
 
