@@ -22,20 +22,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    MarwinPi_Diode.cpp \
-    MarwinPi_Setup.cpp \
-    MarwinPi_MotionSensor.cpp \
-    MarwinPi_Buzzer.cpp
+    Diodes/MarwinPi_Diode.cpp \
+    Platform/MarwinPi_Setup.cpp \
+    Sensors/MarwinPi_MotionSensor.cpp \
+    Sound/MarwinPi_Buzzer.cpp
 
 HEADERS += \
-    MarwinPi_Diode.hpp \
-    MarwinPi_IDiode.hpp \
-    MarwinPi_Setup.hpp \
-    MarwinPi_IMotionSensor.hpp \
-    MarwinPi_MotionSensor.hpp \
-    MarwinPi_IBuzzer.hpp \
-    MarwinPi_Buzzer.hpp \
-    MarwinPi_Types.hpp
+    Diodes/MarwinPi_Diode.hpp \
+    Diodes/MarwinPi_IDiode.hpp \
+    Platform/MarwinPi_Setup.hpp \
+    Sensors/MarwinPi_IMotionSensor.hpp \
+    Sensors/MarwinPi_MotionSensor.hpp \
+    Sound/MarwinPi_IBuzzer.hpp \
+    Sound/MarwinPi_Buzzer.hpp \
+    Platform/MarwinPi_Types.hpp \
+    Platform/MarwinPi_IGpioPort.hpp
 unix {
     target.path = /usr/lib
     INSTALLS += target

@@ -2,7 +2,7 @@
 #define MARWINPI_BUZZER_HPP
 
 #include "MarwinPi_IBuzzer.hpp"
-#include "MarwinPi_Types.hpp"
+#include "Platform/MarwinPi_Types.hpp"
 
 namespace MarwinPi
 {

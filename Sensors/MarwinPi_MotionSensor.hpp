@@ -2,7 +2,7 @@
 #define MARWINPI_MOTIONSENSOR_HPP
 
 #include "MarwinPi_IMotionSensor.hpp"
-#include "MarwinPi_Types.hpp"
+#include "Platform/MarwinPi_Types.hpp"
 
 namespace MarwinPi
 {

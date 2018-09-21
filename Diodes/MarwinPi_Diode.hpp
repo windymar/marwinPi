@@ -2,7 +2,7 @@
 #define MARWINPI_DIODE_HPP
 
 #include "MarwinPi_IDiode.hpp"
-#include "MarwinPi_Types.hpp"
+#include "Platform/MarwinPi_Types.hpp"
 
 namespace MarwinPi
 {
