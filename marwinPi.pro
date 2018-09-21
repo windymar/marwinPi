@@ -24,17 +24,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     MarwinPi_Diode.cpp \
     MarwinPi_Setup.cpp \
-    MarwinPi_Thermometer.cpp \
-    MarwinPi_MotionSensor.cpp
+    MarwinPi_MotionSensor.cpp \
+    MarwinPi_Buzzer.cpp
 
 HEADERS += \
     MarwinPi_Diode.hpp \
     MarwinPi_IDiode.hpp \
     MarwinPi_Setup.hpp \
-    MarwinPi_IThermometer.hpp \
-    MarwinPi_Thermometer.hpp \
     MarwinPi_IMotionSensor.hpp \
-    MarwinPi_MotionSensor.hpp
+    MarwinPi_MotionSensor.hpp \
+    MarwinPi_IBuzzer.hpp \
+    MarwinPi_Buzzer.hpp
 unix {
     target.path = /usr/lib
     INSTALLS += target
