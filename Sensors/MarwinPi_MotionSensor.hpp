@@ -3,7 +3,7 @@
 
 #include "MarwinPi_IMotionSensor.hpp"
 #include "Platform/MarwinPi_Types.hpp"
-#include "Platform/MarwinPi_GpioPort.hpp"
+#include "Platform/MarwinPi_IGpioPort.hpp"
 #include <memory>
 
 namespace MarwinPi

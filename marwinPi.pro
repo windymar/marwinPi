@@ -26,7 +26,8 @@ SOURCES += \
     Platform/MarwinPi_Setup.cpp \
     Sensors/MarwinPi_MotionSensor.cpp \
     Sound/MarwinPi_Buzzer.cpp \
-    Platform/MarwinPi_GpioPort.cpp
+    Platform/MarwinPi_GpioPort.cpp \
+    Diodes/MarwinPi_DiodeRgb.cpp
 
 HEADERS += \
     Diodes/MarwinPi_Diode.hpp \
@@ -38,7 +39,9 @@ HEADERS += \
     Sound/MarwinPi_Buzzer.hpp \
     Platform/MarwinPi_Types.hpp \
     Platform/MarwinPi_IGpioPort.hpp \
-    Platform/MarwinPi_GpioPort.hpp
+    Platform/MarwinPi_GpioPort.hpp \
+    Diodes/MarwinPi_IDiodeRgb.hpp \
+    Diodes/MarwinPi_DiodeRgb.hpp
 unix {
     target.path = /usr/lib
     INSTALLS += target
