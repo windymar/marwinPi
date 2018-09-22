@@ -12,7 +12,6 @@ Diode::Diode(std::unique_ptr<IGpioPort>& p_gpioPort) :
 Diode::~Diode()
 {
     switchOff();
-    m_gpioPort->clear();
 }
 
 void Diode::switchOn()
