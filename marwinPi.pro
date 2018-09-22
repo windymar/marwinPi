@@ -26,7 +26,8 @@ SOURCES += \
     Platform/MarwinPi_Setup.cpp \
     Sensors/MarwinPi_MotionSensor.cpp \
     Sound/MarwinPi_Buzzer.cpp \
-    Platform/MarwinPi_GpioPort.cpp
+    Platform/MarwinPi_GpioPort.cpp \
+    Platform/Tests/MarwinPi_GpioPortTestSuite.cpp
 
 HEADERS += \
     Diodes/MarwinPi_Diode.hpp \
