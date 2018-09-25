@@ -13,6 +13,12 @@ GpioPort::GpioPort(GpioWpi p_gpioWpi, GpioMode p_gpioMode) :
     pinMode(static_cast<unsigned>(p_gpioWpi), static_cast<unsigned>(p_gpioMode));
 }
 
+GpioPort::~GpioPort()
+{
+    std::cout << "dddd" << std::endl;
+    pinMode(static_cast<unsigned>(m_gpioWpi), static_cast<unsigned>(GpioMode::GpioMode_Input));
+}
+
 void GpioPort::write(GpioValue p_value) const
 {
     if(m_gpioMode == GpioMode::GpioMode_Input)
@@ -22,6 +28,16 @@ void GpioPort::write(GpioValue p_value) const
     }
     digitalWrite(static_cast<unsigned>(m_gpioWpi),
                  static_cast<unsigned>(p_value));
+}
+
+void GpioPort::write(unsigned p_signal) const
+{
+    if(m_gpioMode != GpioMode::GpioMode_Pwm)
+    {
+        std::cout << "ERROR: Port is not PWM." << std::endl;
+        throw std::exception();
+    }
+    pwmWrite(static_cast<unsigned>(m_gpioWpi), p_signal);
 }
 
 GpioValue GpioPort::read() const

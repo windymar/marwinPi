@@ -11,8 +11,10 @@ class GpioPort : public IGpioPort
 {
 public:
     GpioPort(GpioWpi p_gpioWpi, GpioMode p_gpioMode);
+    ~GpioPort();
 
     void write(GpioValue p_value) const override;
+    void write(unsigned p_signal) const override;
     GpioValue read() const override;
 
 private:

@@ -12,6 +12,7 @@ public:
     virtual ~IGpioPort() { }
 
     virtual void write(GpioValue) const = 0;
+    virtual void write(unsigned) const = 0;
     virtual GpioValue read() const = 0;
 };
 

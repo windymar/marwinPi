@@ -49,7 +49,8 @@ enum class GpioWpi
 enum class GpioMode
 {
     GpioMode_Input = 0,
-    GpioMode_Output = 1
+    GpioMode_Output = 1,
+    GpioMode_Pwm = 2
 };
 
 enum class GpioValue
