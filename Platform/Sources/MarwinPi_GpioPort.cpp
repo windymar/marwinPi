@@ -1,7 +1,7 @@
 #include "MarwinPi_GpioPort.hpp"
 #include <wiringPi.h>
 #include <iostream>
-#include <stdexcept>
+#include "MarwinPi_GpioException.hpp"
 
 namespace MarwinPi
 {
@@ -28,11 +28,7 @@ void GpioPort::write(GpioValue p_value) const
 {
     if(m_gpioMode != GpioMode::GpioMode_Output)
     {
-#ifdef UNITTESTS
-#else
-        std::cout << "ERROR: You are trying to write to input port type." << std::endl;
-#endif
-        throw std::exception();
+        throw GpioException("You are trying to write to input port type", m_gpioWpi, m_gpioMode);
     }
 #ifdef UNITTESTS
 #else
@@ -45,11 +41,7 @@ void GpioPort::write(unsigned p_signal) const
 {
     if(m_gpioMode != GpioMode::GpioMode_Pwm)
     {
-#ifdef UNITTESTS
-#else
-        std::cout << "ERROR: Port is not PWM." << std::endl;
-#endif
-        throw std::exception();
+        throw GpioException("Port is not PWM type", m_gpioWpi, m_gpioMode);
     }
 #ifdef UNITTESTS
 #else
@@ -61,11 +53,7 @@ GpioValue GpioPort::read() const
 {
     if(m_gpioMode != GpioMode::GpioMode_Input)
     {
-#ifdef UNITTESTS
-#else
-        std::cout << "ERROR: You are trying to read from output port type." << std::endl;
-#endif
-        throw std::exception();
+        throw GpioException("You are trying to read from output port type", m_gpioWpi, m_gpioMode);
     }
 #ifdef UNITTESTS
     return GpioValue::GpioValue_Low;
