@@ -2,7 +2,7 @@
 #define MARWINPI_DIODERGB_HPP
 
 #include "MarwinPi_IDiodeRgb.hpp"
-#include "Platform/MarwinPi_IGpioPort.hpp"
+#include "MarwinPi_IGpioPort.hpp"
 #include <memory>
 
 namespace MarwinPi
