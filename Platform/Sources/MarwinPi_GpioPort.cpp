@@ -15,7 +15,6 @@ GpioPort::GpioPort(GpioWpi p_gpioWpi, GpioMode p_gpioMode) :
 
 GpioPort::~GpioPort()
 {
-    std::cout << "dddd" << std::endl;
     pinMode(static_cast<unsigned>(m_gpioWpi), static_cast<unsigned>(GpioMode::GpioMode_Input));
 }
 
