@@ -1,5 +1,6 @@
 #include "MarwinPi_GpioPortFactoryPi3.hpp"
 #include "MarwinPi_GpioPort.hpp"
+#include "MarwinPi_GpioException.hpp"
 #include <iostream>
 
 namespace MarwinPi
@@ -11,8 +12,7 @@ std::unique_ptr<IGpioPort> GpioPortFactoryPi3::createGpioPort(
 {
     if(isGpioUsed(p_gpio))
     {
-        std::cout << "ERROR: wpi gpio port number already used: " << static_cast<unsigned>(p_gpio) << std::endl;
-        throw std::exception();
+        throw GpioException("Wpi gpio port number already used", p_gpio, p_mode);
     }
     markGpioUsed(p_gpio);
     return std::unique_ptr<GpioPort>(new GpioPort(p_gpio, p_mode));
