@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "MarwinPi_GpioPort.hpp"
+#include "MarwinPi_GpioException.hpp"
 
 namespace MarwinPi
 {
@@ -26,12 +27,12 @@ TEST_F(GpioPortTestSuite, shouldNotThrowExceptionWhenWirtingToOutputPort)
 
 TEST_F(GpioPortTestSuite, shouldThrowExceptionWhenWritingPwmSignalToOutputPort)
 {
-    EXPECT_THROW(gpioPortOutput.write(123), std::exception);
+    EXPECT_THROW(gpioPortOutput.write(123), GpioException);
 }
 
 TEST_F(GpioPortTestSuite, shouldThrowExceptionWhenReadingFromOutputPort)
 {
-    EXPECT_THROW(gpioPortOutput.read(), std::exception);
+    EXPECT_THROW(gpioPortOutput.read(), GpioException);
 }
 
 TEST_F(GpioPortTestSuite, shouldNotThrowExceptionWhenReadingFromInputPort)
@@ -46,7 +47,7 @@ TEST_F(GpioPortTestSuite, shouldThrowExceptionWhenWritingToInputPort)
 
 TEST_F(GpioPortTestSuite, shouldThrowExceptionWhenWritingPwmSignalToInputPort)
 {
-    EXPECT_THROW(gpioPortInput.write(123), std::exception);
+    EXPECT_THROW(gpioPortInput.write(123), GpioException);
 }
 
 TEST_F(GpioPortTestSuite, shouldNotThrowExceptionWhenWritingPwmSignalToPwmPort)
@@ -61,7 +62,7 @@ TEST_F(GpioPortTestSuite, shouldThrowExceptionWhenWritingToPwmPort)
 
 TEST_F(GpioPortTestSuite, shouldThrowExceptionWhenReadingFromPwmPort)
 {
-    EXPECT_THROW(gpioPortPwm.read(), std::exception);
+    EXPECT_THROW(gpioPortPwm.read(), GpioException);
 }
 
 }
