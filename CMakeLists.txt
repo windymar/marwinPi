@@ -7,6 +7,7 @@ include_directories(
     Diodes/Headers
     Sensors/Headers
     Sound/Headers
+    Platform/Tests/Mocks
 )
 
 file(GLOB SOURCES 
