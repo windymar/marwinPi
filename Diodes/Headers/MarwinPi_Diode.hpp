@@ -12,7 +12,7 @@ namespace MarwinPi
 class Diode : public IDiode
 {
 public:
-    Diode(std::unique_ptr<IGpioPort>& p_gpioPort);
+    Diode(std::unique_ptr<IGpioPort> p_gpioPort);
     ~Diode();
 
     void switchOn() override;
@@ -20,7 +20,7 @@ public:
     bool isSwitchedOn() override;
 
 private:
-    std::unique_ptr<IGpioPort>& m_gpioPort;
+    std::unique_ptr<IGpioPort> m_gpioPort;
     bool m_isSwichedOn = false;
 };
 

@@ -8,6 +8,7 @@ include_directories(
     Sensors/Headers
     Sound/Headers
     Platform/Tests/Mocks
+    Diodes/Tests/Mocks
 )
 
 file(GLOB SOURCES 
@@ -20,6 +21,7 @@ file(GLOB SOURCES
 file(GLOB TEST_SOURCES
     "unittests.cpp"
     "Platform/Tests/*.cpp"
+    "Diodes/Tests/*.cpp"
 )
 
 add_library(marwinPi STATIC ${SOURCES})
@@ -28,4 +30,4 @@ add_executable(marwinPiTests ${SOURCES} ${TEST_SOURCES})
 
 target_compile_definitions(marwinPiTests PRIVATE UNITTESTS=1)
 
-target_link_libraries(marwinPiTests gtest wiringPi pthread rt crypt)
+target_link_libraries(marwinPiTests gtest gmock wiringPi pthread rt crypt)

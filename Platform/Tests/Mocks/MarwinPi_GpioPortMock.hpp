@@ -10,9 +10,9 @@ namespace MarwinPi
 class GpioPortMock : public IGpioPort
 {
 public:
-    MOCK_CONST_METHOD0(write, void(GpioValue));
-    MOCK_CONST_METHOD0(write, void(unsigned));
-    MOCK_CONST_METHOD0(read, GpioValue(read()));
+    MOCK_CONST_METHOD1(write, void(GpioValue));
+    MOCK_CONST_METHOD1(write, void(unsigned));
+    MOCK_CONST_METHOD0(read, GpioValue());
 };
 
 }

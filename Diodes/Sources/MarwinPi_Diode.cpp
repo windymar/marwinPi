@@ -1,11 +1,12 @@
 #include "MarwinPi_Diode.hpp"
 #include <wiringPi.h>
+#include <iostream>
 
 namespace MarwinPi
 {
 
-Diode::Diode(std::unique_ptr<IGpioPort>& p_gpioPort) :
-    m_gpioPort(p_gpioPort)
+Diode::Diode(std::unique_ptr<IGpioPort> p_gpioPort) :
+    m_gpioPort(std::move(p_gpioPort))
 {
 }
 
