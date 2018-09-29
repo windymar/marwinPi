@@ -13,7 +13,6 @@ class Diode : public IDiode
 {
 public:
     Diode(std::unique_ptr<IGpioPort> p_gpioPort);
-    ~Diode();
 
     void switchOn() override;
     void switchOff() override;

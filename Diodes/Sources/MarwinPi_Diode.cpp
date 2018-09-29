@@ -10,11 +10,6 @@ Diode::Diode(std::unique_ptr<IGpioPort> p_gpioPort) :
 {
 }
 
-Diode::~Diode()
-{
-    switchOff();
-}
-
 void Diode::switchOn()
 {
     m_gpioPort->write(GpioValue::GpioValue_High);
