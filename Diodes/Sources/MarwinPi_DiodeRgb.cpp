@@ -4,12 +4,12 @@ namespace MarwinPi
 {
 
 DiodeRgb::DiodeRgb(
-        std::unique_ptr<IGpioPort>& p_redGpioPort,
-        std::unique_ptr<IGpioPort>& p_greenGpioPort,
-        std::unique_ptr<IGpioPort>& p_blueGpioPort) :
-    m_redGpioPort(p_redGpioPort),
-    m_greenGpioPort(p_greenGpioPort),
-    m_blueGpioPort(p_blueGpioPort)
+        std::unique_ptr<IGpioPort> p_redGpioPort,
+        std::unique_ptr<IGpioPort> p_greenGpioPort,
+        std::unique_ptr<IGpioPort> p_blueGpioPort) :
+    m_redGpioPort(std::move(p_redGpioPort)),
+    m_greenGpioPort(std::move(p_greenGpioPort)),
+    m_blueGpioPort(std::move(p_blueGpioPort))
 {
 
 }

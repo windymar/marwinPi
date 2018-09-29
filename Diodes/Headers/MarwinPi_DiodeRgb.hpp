@@ -11,9 +11,9 @@ namespace MarwinPi
 class DiodeRgb : IDiodeRgb
 {
 public:
-    DiodeRgb(std::unique_ptr<IGpioPort>& p_redGpioPort,
-             std::unique_ptr<IGpioPort>& p_greenGpioPort,
-             std::unique_ptr<IGpioPort>& p_blueGpioPort);
+    DiodeRgb(std::unique_ptr<IGpioPort> p_redGpioPort,
+             std::unique_ptr<IGpioPort> p_greenGpioPort,
+             std::unique_ptr<IGpioPort> p_blueGpioPort);
 
     virtual void switchOnRed() override;
     virtual void switchOnGreen() override;
@@ -24,9 +24,9 @@ public:
     virtual void switchOffBlue() override;
 
 private:
-    std::unique_ptr<IGpioPort>& m_redGpioPort;
-    std::unique_ptr<IGpioPort>& m_greenGpioPort;
-    std::unique_ptr<IGpioPort>& m_blueGpioPort;
+    std::unique_ptr<IGpioPort> m_redGpioPort;
+    std::unique_ptr<IGpioPort> m_greenGpioPort;
+    std::unique_ptr<IGpioPort> m_blueGpioPort;
 };
 
 }
