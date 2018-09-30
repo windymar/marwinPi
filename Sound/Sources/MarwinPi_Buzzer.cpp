@@ -4,15 +4,11 @@
 namespace MarwinPi
 {
 
-Buzzer::Buzzer(std::unique_ptr<IGpioPort>& p_gpioPort) :
-    m_gpioPort(p_gpioPort)
+Buzzer::Buzzer(std::unique_ptr<IGpioPort> p_gpioPort) :
+    m_gpioPort(std::move(p_gpioPort))
 {
-    stopPlaying();
-}
-
-Buzzer::~Buzzer()
-{
-    stopPlaying();
+    //because buzzer is playing on GpioValue_Low
+    m_isPlaying = true;
 }
 
 void Buzzer::play()

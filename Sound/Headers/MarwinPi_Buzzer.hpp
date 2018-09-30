@@ -12,15 +12,14 @@ namespace MarwinPi
 class Buzzer : public IBuzzer
 {
 public:
-    Buzzer(std::unique_ptr<IGpioPort>& p_gpioPort);
-    ~Buzzer();
+    Buzzer(std::unique_ptr<IGpioPort> p_gpioPort);
 
     void play() override;
     bool isPlaying() const override;
     void stopPlaying() override;
 
 private:
-    std::unique_ptr<IGpioPort>& m_gpioPort;
+    std::unique_ptr<IGpioPort> m_gpioPort;
     bool m_isPlaying = false;
 };
 
