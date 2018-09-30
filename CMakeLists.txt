@@ -22,6 +22,7 @@ file(GLOB TEST_SOURCES
     "unittests.cpp"
     "Platform/Tests/*.cpp"
     "Diodes/Tests/*.cpp"
+    "Sensors/Tests/*.cpp"
 )
 
 add_library(marwinPi STATIC ${SOURCES})

@@ -12,12 +12,12 @@ namespace MarwinPi
 class MotionSensor : public IMotionSensor
 {
 public:
-    MotionSensor(std::unique_ptr<IGpioPort>& p_gpioPort);
+    MotionSensor(std::unique_ptr<IGpioPort> p_gpioPort);
 
     bool motionDetected() override;
 
 private:
-    std::unique_ptr<IGpioPort>& m_gpioPort;
+    std::unique_ptr<IGpioPort> m_gpioPort;
 };
 
 }

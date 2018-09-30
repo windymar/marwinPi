@@ -4,8 +4,8 @@
 namespace MarwinPi
 {
 
-MotionSensor::MotionSensor(std::unique_ptr<IGpioPort>& p_gpioPort) :
-    m_gpioPort(p_gpioPort)
+MotionSensor::MotionSensor(std::unique_ptr<IGpioPort> p_gpioPort) :
+    m_gpioPort(std::move(p_gpioPort))
 {
 }
 
