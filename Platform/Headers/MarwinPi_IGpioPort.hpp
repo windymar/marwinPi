@@ -14,6 +14,8 @@ public:
     virtual void write(GpioValue) const = 0;
     virtual void write(unsigned) const = 0;
     virtual GpioValue read() const = 0;
+    virtual GpioWpi getWpiPort() const = 0;
+    virtual GpioMode getMode() const = 0;
 };
 
 }

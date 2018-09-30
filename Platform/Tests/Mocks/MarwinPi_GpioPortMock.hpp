@@ -13,6 +13,8 @@ public:
     MOCK_CONST_METHOD1(write, void(GpioValue));
     MOCK_CONST_METHOD1(write, void(unsigned));
     MOCK_CONST_METHOD0(read, GpioValue());
+    MOCK_CONST_METHOD0(getWpiPort, GpioWpi());
+    MOCK_CONST_METHOD0(getMode, GpioMode());
 };
 
 }

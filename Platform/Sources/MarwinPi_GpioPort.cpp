@@ -62,4 +62,14 @@ GpioValue GpioPort::read() const
 #endif
 }
 
+GpioWpi GpioPort::getWpiPort() const
+{
+    return m_gpioWpi;
+}
+
+GpioMode GpioPort::getMode() const
+{
+    return m_gpioMode;
+}
+
 }

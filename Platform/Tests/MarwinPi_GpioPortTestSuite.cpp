@@ -9,9 +9,9 @@ class GpioPortTestSuite : public ::testing::Test
 {
 public:
     GpioPortTestSuite() :
-        gpioPortOutput(GpioWpi::GpioWpi_0, GpioMode::GpioMode_Output),
-        gpioPortInput(GpioWpi::GpioWpi_0, GpioMode::GpioMode_Input),
-        gpioPortPwm(GpioWpi::GpioWpi_0, GpioMode::GpioMode_Pwm)
+        gpioPortOutput(GpioWpi::GpioWpi_1, GpioMode::GpioMode_Output),
+        gpioPortInput(GpioWpi::GpioWpi_2, GpioMode::GpioMode_Input),
+        gpioPortPwm(GpioWpi::GpioWpi_3, GpioMode::GpioMode_Pwm)
     {
     }
 
@@ -19,6 +19,14 @@ public:
     GpioPort gpioPortInput;
     GpioPort gpioPortPwm;
 };
+
+TEST_F(GpioPortTestSuite, checkWpiNumberAndGpioMode)
+{
+    EXPECT_EQ(gpioPortOutput.getWpiPort(), GpioWpi::GpioWpi_1);
+    EXPECT_EQ(gpioPortOutput.getMode(), GpioMode::GpioMode_Output);
+    EXPECT_EQ(gpioPortInput.getMode(), GpioMode::GpioMode_Input);
+    EXPECT_EQ(gpioPortPwm.getMode(), GpioMode::GpioMode_Pwm);
+}
 
 TEST_F(GpioPortTestSuite, shouldNotThrowExceptionWhenWirtingToOutputPort)
 {

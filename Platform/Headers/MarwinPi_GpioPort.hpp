@@ -17,6 +17,9 @@ public:
     void write(unsigned p_signal) const override;
     GpioValue read() const override;
 
+    GpioWpi getWpiPort() const override;
+    GpioMode getMode() const override;
+
 private:
     GpioWpi m_gpioWpi;
     GpioMode m_gpioMode;
