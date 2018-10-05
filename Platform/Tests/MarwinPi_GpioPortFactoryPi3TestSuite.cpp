@@ -1,6 +1,10 @@
 #include <gtest/gtest.h>
 #include "MarwinPi_GpioPortFactoryPi3.hpp"
 #include "MarwinPi_GpioException.hpp"
+#include "MarwinPi_WiringPiWrapperMock.hpp"
+
+using ::testing::_;
+using ::testing::AtLeast;
 
 namespace MarwinPi
 {
@@ -11,6 +15,12 @@ constexpr GpioMode GPIO_MODE = GpioMode::GpioMode_Output;
 class GpioPortFactoryPi3TestSuite : public ::testing::Test
 {
 public:
+    GpioPortFactoryPi3TestSuite() : m_sut(m_wiringPiWrapperMock)
+    {
+        EXPECT_CALL(m_wiringPiWrapperMock, pinMode(_, _)).Times(AtLeast(2));
+    }
+
+    WiringPiWrapperMock m_wiringPiWrapperMock;
     GpioPortFactoryPi3 m_sut;
 };
 

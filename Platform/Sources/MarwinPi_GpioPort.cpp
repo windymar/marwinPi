@@ -6,22 +6,17 @@
 namespace MarwinPi
 {
 
-GpioPort::GpioPort(GpioWpi p_gpioWpi, GpioMode p_gpioMode) :
+GpioPort::GpioPort(IWiringPiWrapper& p_wpiWrapper, GpioWpi p_gpioWpi, GpioMode p_gpioMode) :
+    m_wiringPiWrapper(p_wpiWrapper),
     m_gpioWpi(p_gpioWpi),
     m_gpioMode(p_gpioMode)
 {
-#ifdef UNITTESTS
-#else
-    pinMode(static_cast<unsigned>(p_gpioWpi), static_cast<unsigned>(p_gpioMode));
-#endif
+    m_wiringPiWrapper.pinMode(p_gpioWpi, p_gpioMode);
 }
 
 GpioPort::~GpioPort()
 {
-#ifdef UNITTESTS
-#else
-    pinMode(static_cast<unsigned>(m_gpioWpi), static_cast<unsigned>(GpioMode::GpioMode_Input));
-#endif
+    m_wiringPiWrapper.pinMode(m_gpioWpi, GpioMode::GpioMode_Input);
 }
 
 void GpioPort::write(GpioValue p_value) const
@@ -30,11 +25,7 @@ void GpioPort::write(GpioValue p_value) const
     {
         throw GpioException("You are trying to write to input port type", m_gpioWpi, m_gpioMode);
     }
-#ifdef UNITTESTS
-#else
-    digitalWrite(static_cast<unsigned>(m_gpioWpi),
-                 static_cast<unsigned>(p_value));
-#endif
+    m_wiringPiWrapper.digitalWrite(m_gpioWpi, p_value);
 }
 
 void GpioPort::write(unsigned p_signal) const
@@ -43,10 +34,7 @@ void GpioPort::write(unsigned p_signal) const
     {
         throw GpioException("Port is not PWM type", m_gpioWpi, m_gpioMode);
     }
-#ifdef UNITTESTS
-#else
-    pwmWrite(static_cast<unsigned>(m_gpioWpi), p_signal);
-#endif
+    m_wiringPiWrapper.pwmWrite(m_gpioWpi, p_signal);
 }
 
 GpioValue GpioPort::read() const
@@ -55,11 +43,7 @@ GpioValue GpioPort::read() const
     {
         throw GpioException("You are trying to read from output port type", m_gpioWpi, m_gpioMode);
     }
-#ifdef UNITTESTS
-    return GpioValue::GpioValue_Low;
-#else
-    return static_cast<GpioValue>(digitalRead(static_cast<unsigned>(m_gpioWpi)));
-#endif
+    return m_wiringPiWrapper.digitalRead(m_gpioWpi);
 }
 
 GpioWpi GpioPort::getWpiPort() const

@@ -2,6 +2,7 @@
 #define MARWINPI_GPIOPORTFACTORYPI3_HPP
 
 #include "MarwinPi_IGpioPortFactory.hpp"
+#include "MarwinPi_IWiringPiWrapper.hpp"
 #include <map>
 
 namespace MarwinPi
@@ -10,6 +11,8 @@ namespace MarwinPi
 class GpioPortFactoryPi3 : public IGpioPortFactory
 {
 public:
+    GpioPortFactoryPi3(IWiringPiWrapper& p_wiringPiWrapper);
+
     std::unique_ptr<IGpioPort> createGpioPort(GpioWpi, GpioMode) override;
 
 private:
@@ -35,6 +38,8 @@ private:
         { GpioWpi::GpioWpi_28, false },
         { GpioWpi::GpioWpi_29, false }
     };
+
+    IWiringPiWrapper& m_wiringPiWrapper;
 };
 
 }

@@ -6,6 +6,11 @@
 namespace MarwinPi
 {
 
+GpioPortFactoryPi3::GpioPortFactoryPi3(IWiringPiWrapper& p_wiringPiWrapper) :
+    m_wiringPiWrapper(p_wiringPiWrapper)
+{
+}
+
 std::unique_ptr<IGpioPort> GpioPortFactoryPi3::createGpioPort(
         GpioWpi p_gpio,
         GpioMode p_mode)
@@ -15,7 +20,7 @@ std::unique_ptr<IGpioPort> GpioPortFactoryPi3::createGpioPort(
         throw GpioException("Wpi gpio port number already used", p_gpio, p_mode);
     }
     markGpioUsed(p_gpio);
-    return std::unique_ptr<GpioPort>(new GpioPort(p_gpio, p_mode));
+    return std::unique_ptr<GpioPort>(new GpioPort(m_wiringPiWrapper, p_gpio, p_mode));
 }
 
 bool GpioPortFactoryPi3::isGpioUsed(GpioWpi p_gpio)

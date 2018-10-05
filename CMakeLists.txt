@@ -30,6 +30,4 @@ add_library(marwinPi STATIC ${SOURCES})
 
 add_executable(marwinPiTests ${SOURCES} ${TEST_SOURCES})
 
-target_compile_definitions(marwinPiTests PRIVATE UNITTESTS=1)
-
 target_link_libraries(marwinPiTests gtest gmock wiringPi pthread rt crypt)

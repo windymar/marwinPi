@@ -3,6 +3,7 @@
 
 #include "MarwinPi_IGpioPort.hpp"
 #include "MarwinPi_Types.hpp"
+#include "MarwinPi_IWiringPiWrapper.hpp"
 
 namespace MarwinPi
 {
@@ -10,7 +11,7 @@ namespace MarwinPi
 class GpioPort : public IGpioPort
 {
 public:
-    GpioPort(GpioWpi p_gpioWpi, GpioMode p_gpioMode);
+    GpioPort(IWiringPiWrapper& p_wpiWrapper, GpioWpi p_gpioWpi, GpioMode p_gpioMode);
     ~GpioPort();
 
     void write(GpioValue p_value) const override;
@@ -23,6 +24,7 @@ public:
 private:
     GpioWpi m_gpioWpi;
     GpioMode m_gpioMode;
+    IWiringPiWrapper& m_wiringPiWrapper;
 };
 
 }
